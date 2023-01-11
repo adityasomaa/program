@@ -1,0 +1,221 @@
+#include<time.h>
+#include<iostream>
+#include<conio.h>
+#include<windows.h>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() 
+{ 
+int pil;
+cout << "NAMA   : I Gst Agung Aditya Soma Nathasastra"<<endl;
+cout << "NIM    : 220030364"<<endl;
+cout << "KELAS  : CA223"<<endl<<endl;
+cout << "======= Program Sorting (Bubble, Insertion, Selection, Searching) =========="<<endl<<endl;
+cout << "1. Bubble sort" <<endl;
+cout << "2. Insertion sort" <<endl;
+cout << "3. Selection sort" <<endl;
+cout << "4. Searching" <<endl<<endl;
+cout << "==============================="<<endl<<endl;
+cout << "Masukkan pilihan anda = "; cin >> pil;
+
+    switch(pil) 
+    {
+    //Bubble sort
+    case 1:
+    system("cls");
+    cout << endl;
+    cout << "Bubble sort"<<endl;
+    cout << "============"<<endl;
+ 
+    int t1,t2;
+    int hold;
+    int array[5];
+
+    cout<<"Masukkan 5 angka :"<<endl;
+
+    for(int i=0; i<5; i++) 
+    {
+    cout << "  Angka ke-" <<i+1 <<" : ";cin>>array[i];
+    }
+    cout<<endl;
+    cout<<endl;
+    t1=GetTickCount();
+    cout<<"Proses berjalan...\n";
+    for(int j=0; j<5; j++) 
+    {
+    cout<<array[j];
+    cout<<"  ";
+    }
+    cout<<endl;
+ 
+    for(int i=0; i<4; i++) 
+    {
+        for(int j=0; j<4; j++) 
+        {
+        if(array[j]<array[j+1]) 
+            {
+            hold=array[j];
+            array[j]=array[j+1];
+            array[j+1]=hold;
+        
+        for(int i=0; i<5; i++) 
+        {
+        cout<<array[i]<<"  ";
+        }
+        cout<<endl;
+            }
+        }
+  
+    }
+    cout<<endl;
+    cout<<"Angka setelah di sortir : ";
+    for(int i=0; i<5; i++) 
+    {
+    cout<<array[i]<<"  ";
+    }
+    cout<<endl;
+    break;
+
+    //Insertion sort
+    case 2:
+    system("cls");
+    cout << "Insertion sort"<<endl;
+    cout << "============="<<endl;
+    cout<<endl;
+    int t3,t4;
+    int Key;
+    int array1[5];
+
+    cout<<"Masukan 5 angka : "<<endl;
+    for(int i=0; i<5; i++)  
+    {
+    cout << "  Angka ke-" <<i+1 <<" : ";cin>>array1[i];
+    }
+
+    cout<<endl;
+    t3=GetTickCount();
+    cout<<"Proses berjalan...\n";
+
+    for(int j=0; j<5; j++) 
+    {
+    cout<<array1[j]<<"  ";
+    }
+    cout<<endl;
+    for(int j=1 ; j < 5 ; j++) {
+    Key = array1[j];              
+    int i = j-1;                  
+    while(i >= 0 && array1[i] < Key) {
+    
+    array1[i + 1] = array1[i];
+  i = i - 1;
+ }
+ array1[i + 1] = Key;
+ 
+ for(int l=0; l<5; l++) {
+  cout<<array1[l]<<"  ";
+  
+ }
+ cout<<endl;
+}
+cout<<endl<<"Angka setelah disortir : ";
+
+for(int i=0; i<5; i++) {
+ cout<<array1[i]<<"  ";
+ 
+}
+
+ break;
+ 
+//Selection sort
+ case 3:
+ system("cls");
+ cout << "Selection sort";
+ cout <<endl<< "================="<<endl<<endl;
+ int t5,t6;
+ int arr[5];
+int mini,temp;
+
+cout<<"Masukan 5 angka :"<<endl;
+
+for(int i=0; i<5; i++) {
+ cout << "  Angka ke-" <<i+1 <<" : ";cin>>arr[i];
+}
+t5=GetTickCount();
+cout<<endl;
+cout<<"Angka sebelum di sortir : ";
+
+for(int j=0; j<5; j++) {
+ cout<<arr[j]<<"  ";
+ 
+}
+
+for(int r1=0;r1<4;r1++) {
+ mini=r1;
+ for(int r2=r1+1; r2<5; r2++)
+   if(arr[r2]>arr[mini])
+   mini=r2;
+    if(mini !=r1) {
+     temp=arr[r1];
+     arr[r1]=arr[mini];
+     arr[mini]=temp;
+    }
+}
+cout<<endl;
+cout<<endl;
+cout<<"Setelah di sortir = ";
+for(int q=0; q<5; q++) {
+ cout<<arr[q]<< "  " ;
+ 
+}
+ break;
+ default:
+ system("cls");
+ cout << "Pilihan tidak tersedia";
+ break;
+
+//Searching
+  case 4:
+  int arrayD[20];
+  int st, mid, end, i, num, tgt;  
+      
+    cout << "Tentukan jumlah angka (MAX. 20): " << endl;  
+    cin >> num; 
+        
+        cout << "Masukkan angka: " << endl;    
+    for (i = 0; i < num; i++)  
+    {  
+        cout << " Angka [" << i+1 << "] : ";  
+        cin >> arrayD[i];  
+    }  
+      
+    st = 0;  
+    end = num - 1;
+      
+    cout << " Cari angka: " << endl;  
+    cin >> tgt;  
+       
+    while ( st <= end)  
+    {  
+        mid = ( st + end ) / 2;  
+        if (arrayD[mid] == tgt)  
+        {  
+            cout << " Angka ditemukan pada index ke- " << (mid + 1);  
+            exit (0);  
+        } 
+        else if ( tgt > arrayD[mid])  
+        {  
+            st = mid + 1;
+        }  
+        else if ( tgt < array[mid])  
+        {  
+            end = mid - 1;
+        }  
+    }  
+    cout << " Angka tidak ditemukan. " << endl;  
+    return 0;  
+}   
+
+ getch();
+}
